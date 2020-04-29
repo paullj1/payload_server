@@ -49,3 +49,47 @@ http://kali.local:8000/win_x86_https.ps1
 # Fingerprinting
 Uses [JS Fingerprint 2](https://github.com/Valve/fingerprintjs2) and stores output in `logs/<client IP>.txt`
 
+```
+127.0.0.1 - - [29/Apr/2020 09:37:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2020 09:37:07] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2020 09:37:09] "GET /favicon.ico HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2020 09:37:09] "POST / HTTP/1.1" 200 -
+```
+
+The last `POST` request is the client sending it's fingerprint data:
+```
+userAgent = Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+Firefox/68.0
+webdriver = false
+language = en-US
+colorDepth = 24
+deviceMemory = not available
+hardwareConcurrency = 6
+screenResolution = 3008,1692
+availableScreenResolution = 3008,1661
+timezoneOffset = 240
+timezone = America/New_York
+sessionStorage = true
+localStorage = true
+indexedDb = true
+addBehavior = false
+openDatabase = false
+cpuClass = not available
+platform = Linux x86_64
+plugins = 
+canvas = canvas winding:yes,canvas
+fp:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9AAAADICAYAAACwGnoBAAAgA
+webgl =
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACWCAYAAABkW7XSAAARcklEQVR4nO3c/2vbi37f8eefsR82uD
+webglVendorAndRenderer = VMware, Inc.~SVGA3D; build: RELEASE;  LLVM;
+adBlock = false
+hasLiedLanguages = false
+hasLiedResolution = false
+hasLiedOs = false
+hasLiedBrowser = false
+touchSupport = 0,false,false
+fonts = Arial,Arial Narrow,Bitstream Vera Sans Mono,Bookman Old Style,Century
+Schoolbook,Courier,Courier New
+audio = 35.73833402246237
+```
+
