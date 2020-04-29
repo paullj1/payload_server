@@ -78,24 +78,24 @@ class FPServer():
 
     def gen_links(self):
 
-        if args.host:
-            ips = args.host
+        if self.args.host:
+            ips = self.args.host
         else:
             ips = os.popen("hostname --all-ip-addresses").read().split(' ')[0:-1]
             ips.append(socket.gethostname())
 
         rpath = ''.join(random.choice(string.ascii_letters) for i in range(10))
-        proto = "http" if not args.ssl else "https"
+        proto = "http" if not self.args.ssl else "https"
         print("[+] Fingerprint link(s): (really, anything except a file that exists)")
         for ip in ips:
-            print("{}://{}/".format(proto, ip))
-            print("{}://{}/{}".format(proto, ip, rpath))
+            print("{}://{}:{}/".format(proto, ip, args.port))
+            print("{}://{}:{}/{}".format(proto, ip, args.port, rpath))
 
         print("\n[+] Available payloads:")
         for ip in ips:
             for f in get_payloads():
                 if is_valid_payload(f):
-                    print("{}://{}/{}".format(proto,ip,f))
+                    print("{}://{}:{}/{}".format(proto,ip,args.port,f))
         print()
 
     def cleanup(self):
@@ -111,19 +111,19 @@ class FPServer():
     def start(self):
 
         try:
-            self.httpd = ThreadingHTTPServer(("", args.port), FPHandler)
+            self.httpd = ThreadingHTTPServer(("", self.args.port), FPHandler)
 
             if self.args.ssl:
                 self.gen_certs()
 
             self.gen_links()
 
-            print("[+] Now all files in the 'payloads' directory and fingerprint server on port {}".format(args.port))
+            print("[+] Now all files in the 'payloads' directory and fingerprint server on port {}".format(self.args.port))
             self.server_thread = Thread(target=self.httpd.serve_forever)
             self.server_thread.start()
             
         except OSError as e:
-            print("[!] Couldn't bind to port {}.  Probably in use.".format(args.port))
+            print("[!] Couldn't bind to port {}.  Probably in use.".format(self.args.port))
             self.cleanup()
 
 if __name__ == '__main__':

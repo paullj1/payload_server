@@ -18,30 +18,30 @@ optional arguments:
 ```
 root@kali:/payload_server# ./server.py
 [+] Fingerprint link(s): (really, anything except a file that exists)
-http://172.17.0.2/
-http://172.17.0.2/TwYCEvgMHs
-http://kali.local/
-http://kali.local/TwYCEvgMHs
+http://172.17.0.2:8000/
+http://172.17.0.2:8000/TwYCEvgMHs
+http://kali.local:8000/
+http://kali.local:8000/TwYCEvgMHs
 
 [+] Available payloads:
-http://172.17.0.2/lin_x64_https.bin
-http://172.17.0.2/lin_x86_https.bin
-http://172.17.0.2/win_x64_https.dll
-http://172.17.0.2/win_x64_https.exe
-http://172.17.0.2/win_x64_https.ps1
-http://172.17.0.2/win_x64_tcp.exe
-http://172.17.0.2/win_x86_https.dll
-http://172.17.0.2/win_x86_https.exe
-http://172.17.0.2/win_x86_https.ps1
-http://kali.local/lin_x64_https.bin
-http://kali.local/lin_x86_https.bin
-http://kali.local/win_x64_https.dll
-http://kali.local/win_x64_https.exe
-http://kali.local/win_x64_https.ps1
-http://kali.local/win_x64_tcp.exe
-http://kali.local/win_x86_https.dll
-http://kali.local/win_x86_https.exe
-http://kali.local/win_x86_https.ps1
+http://172.17.0.2:8000/lin_x64_https.bin
+http://172.17.0.2:8000/lin_x86_https.bin
+http://172.17.0.2:8000/win_x64_https.dll
+http://172.17.0.2:8000/win_x64_https.exe
+http://172.17.0.2:8000/win_x64_https.ps1
+http://172.17.0.2:8000/win_x64_tcp.exe
+http://172.17.0.2:8000/win_x86_https.dll
+http://172.17.0.2:8000/win_x86_https.exe
+http://172.17.0.2:8000/win_x86_https.ps1
+http://kali.local:8000/lin_x64_https.bin
+http://kali.local:8000/lin_x86_https.bin
+http://kali.local:8000/win_x64_https.dll
+http://kali.local:8000/win_x64_https.exe
+http://kali.local:8000/win_x64_https.ps1
+http://kali.local:8000/win_x64_tcp.exe
+http://kali.local:8000/win_x86_https.dll
+http://kali.local:8000/win_x86_https.exe
+http://kali.local:8000/win_x86_https.ps1
 
 [+] Now all files in the 'payloads' directory and fingerprint server on port 8000
 ```
