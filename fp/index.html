@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>It works!</title>
+    <script src='app.js'></script>
+</head>
+<body>
+It works!
+<script>
+  var fingerprintReport = function () {
+    Fingerprint2.get(function(components) {
+      var details = ""
+      for (var index in components) {
+        var obj = components[index]
+        var line = obj.key + " = " + String(obj.value).substr(0, 100)
+        details += line + "\n"
+      }
+      var xhttp = new XMLHttpRequest()
+      xhttp.open("POST", "/", true)
+      xhttp.send(details)
+    })
+  }
+
+  fingerprintReport();
+</script>
+</body>
+</html>
